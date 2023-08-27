@@ -17,8 +17,8 @@ export class App extends Component {
   onLeaveFeedback = typeButton => {
     this.setState(prevState => ({
       [typeButton]: prevState[typeButton] + 1,
+      shouldDisplayStatistics: true,
     }));
-    this.state.shouldDisplayStatistics = true;
   };
 
   countTotalFeedback = () =>
