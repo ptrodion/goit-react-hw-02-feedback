@@ -11,13 +11,13 @@ export class App extends Component {
     good: 0,
     neutral: 0,
     bad: 0,
-    shouldDisplayStatistics: false,
+    showStatistics: false,
   };
 
-  onLeaveFeedback = typeButton => {
+  onLeaveFeedback = feedback => {
     this.setState(prevState => ({
-      [typeButton]: prevState[typeButton] + 1,
-      shouldDisplayStatistics: true,
+      [feedback]: prevState[feedback] + 1,
+      showStatistics: true,
     }));
   };
 
@@ -37,7 +37,7 @@ export class App extends Component {
         <GlobalStyle />
         <Section title={title}>
           <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
-          {this.state.shouldDisplayStatistics ? (
+          {this.state.showStatistics ? (
             <Statistics
               good={this.state.good}
               neutral={this.state.neutral}
